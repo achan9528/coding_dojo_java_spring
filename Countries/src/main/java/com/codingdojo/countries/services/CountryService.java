@@ -27,4 +27,24 @@ public class CountryService {
 	public List<Object[]> join3(){
 		return cr.join3();
 	}
+	
+	public List<Object[]> join4(){
+		return cr.join4();
+	}
+	
+	public List<Object[]> join5(){
+		return cr.join5();
+	}
+	
+	public List<Object[]> join6(){
+		return cr.join6();
+	}
+	
+	public List<Object[]> join7(){
+		return cr.join7();
+	}
+	
+	public List<Object[]> join8(){
+		return cr.join8();
+	}
 }

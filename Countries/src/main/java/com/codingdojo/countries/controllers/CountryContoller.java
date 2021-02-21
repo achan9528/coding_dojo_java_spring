@@ -29,12 +29,13 @@ public class CountryContoller {
 	
 	@RequestMapping("/")
 	public String getResults(Model model) {
-		List<Object[]> table = cs.join3();
+		List<Object[]> table = cs.join8();
 		System.out.println("Found table with " + table.size() + " rows");
 		for (Object[] row: table) {
 			System.out.println(row[0]);
 			System.out.println(row[1]);
-			System.out.println(row[2]);
+//			System.out.println(row[2]);
+//			System.out.println(row[3]);
 		}
 		return "This is a test";
 	}
