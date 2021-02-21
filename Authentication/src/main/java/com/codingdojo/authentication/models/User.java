@@ -21,6 +21,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Email;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.PrePersist;
 import javax.persistence.PostPersist;
@@ -38,7 +39,9 @@ public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    @Email(message="Email must be valid")
     private String email;
+    @Size(min=5, message="Password must be at least 5 characters")
     private String password;
     @Transient
     private String passwordConfirmation;

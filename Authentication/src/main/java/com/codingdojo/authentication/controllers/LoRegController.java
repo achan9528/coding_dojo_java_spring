@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 //Needed user-defined classes
 import com.codingdojo.authentication.models.*;
 import com.codingdojo.authentication.services.*;
+import com.codingdojo.authentication.validator.*;
 //Other Java classes needed
 import java.util.List;
 import java.util.HashMap;
@@ -22,9 +23,12 @@ import java.util.Map;
 @Controller
 public class LoRegController {
 	private final UserService us;
+	private final UserValidator uv;
 	
-	public LoRegController(UserService us) {
+	public LoRegController(UserService us,
+			UserValidator uv) {
 		this.us = us;
+		this.uv = uv;
 	}
 	
    @RequestMapping("/registration")
@@ -39,6 +43,7 @@ public class LoRegController {
     @RequestMapping(value="/registration", method=RequestMethod.POST)
     public String registerUser(@Valid @ModelAttribute("user") User user,
     		BindingResult result, HttpSession session) {
+    	uv.validate(user, result);
     	if (result.hasErrors()) {
     		return "registrationPage.jsp";
     	} else {
